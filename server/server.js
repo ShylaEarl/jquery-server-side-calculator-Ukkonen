@@ -4,12 +4,13 @@ const bodyParser = require('body-parser'); //body parser 'parses' through data a
 const app = express(); //create an instance of express by calling the function
 const PORT = 5000; //the port we are operating on/through
 
-let calculationHistory = [];
+let calculationHistory = []; //array of calculations
 
 app.use(express.static('server/public')); //serves up our static files
 
 app.use(bodyParser.urlencoded({extended: true})); //allows us to find data 'bundles' via urls
 
+//sends input data (numbers and operator) from DOM along with calculation of said data to server
 app.post('/submitNumbers', (req, res) => {
   console.log('hello from post', req.body);
   let mathObject = req.body;
@@ -20,6 +21,7 @@ app.post('/submitNumbers', (req, res) => {
   res.sendStatus(200);
 });
 
+//calculates math total
 function submitCal(mathObject){
     console.log('in submit cal');
     let num1 = mathObject.num1;
@@ -40,6 +42,7 @@ function submitCal(mathObject){
     }
 }
 
+//sends calculations back to DOM
 app.get('/submitNumbers', (req, res) => {
   res.send(calculationHistory);
 });

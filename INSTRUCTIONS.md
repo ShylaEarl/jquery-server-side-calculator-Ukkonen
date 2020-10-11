@@ -22,13 +22,15 @@ X There should also be a 'C' button that will clear the user input fields.
 
 X Build out the server-side logic to compute the numbers as appropriate 
   X to handle Addition, Subtraction, Multiplication, and Division. 
-  Once the calculation is complete, send back the OK. (calculationHistory.total)
+  X Once the calculation is complete, send back the OK. 
 
-***** You should do a GET request after the POST to get the actual calculation. ****
+X You should do a GET request after the POST to get the actual calculation.
 
 ### History
 
-Keep a historical record of all math operations and solutions on the server. Display a list of all previous calculations on the page when it loads using a GET request. Update the list when a new calculation is made.
+X Keep a historical record of all math operations and solutions on the server. 
+X Display a list of previous calculations on DOM when it loads using a GET request. 
+X Update the list when a new calculation is made.
 
 > NOTE: History should exist even after refreshing the page. It's expected that the history will go away after restarting the server. We'll talk about long term data storage next week.
 
