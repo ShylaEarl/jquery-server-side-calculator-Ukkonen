@@ -8,10 +8,10 @@ let calculationHistory = [];
 
 app.use(express.static('server/public')); //serves up our static files
 
-app.use(bodyParser.urlencoded({extended: true})); //allows us to find data via urls
+app.use(bodyParser.urlencoded({extended: true})); //allows us to find data 'bundles' via urls
 
 app.post('/submitNumbers', (req, res) => {
-  console.log('hello from post', req.body); // req.body is related to body parser. important to add console.log with descriptive strings in each app to debug/know where things are/coming from
+  console.log('hello from post', req.body);
   let mathObject = req.body;
   console.log('math object', mathObject);
   mathObject.total = submitCal(mathObject);

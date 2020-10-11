@@ -14,14 +14,14 @@
 
     <!-- Input and calculation feilds -->
     <div id="calculatorBody">
-        <input type="text" id="num1" placeholder="Enter Interger"></input>
+        <input type="text" id="num1" placeholder="Enter Number"></input>
         <button class='operator' data-value="+">+</button>
         <button class='operator' id="minusOp" data-value="-">-</button>
         <button class='operator' id="multiplyOp" data-value="*">*</button>
         <button class='operator' id="divideOp" data-value="/">/</button>
-        <input type="text" id="num2" placeholder="Enter Interger"></input>
+        <input type="text" id="num2" placeholder="Enter Number"></input>
         <button id="submitButton">=</button>
-        <button id="clear">C</button>
+        <button id="clearButton">C</button>
     </div>
     
     <!-- id to receive calculation -->
@@ -36,5 +36,7 @@
 </html>
 
 
-<!-- X When the submit (`=` button) is clicked, capture this input, bundle it up in an object, and send this object to the server via a POST. 
-X There should also be a 'C' button that will clear the user input fields.  -->
+<!-- X When the submit (`=` button) is clicked, 
+    capture this input, 
+    bundle it up in an object, and 
+    send this object to the server via a POST.   -->

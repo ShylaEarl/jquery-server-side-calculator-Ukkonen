@@ -20,7 +20,11 @@ X When the submit (`=` button) is clicked,
 ----------------------------------------------------------------------    
 X There should also be a 'C' button that will clear the user input fields.
 
-Build out the server-side logic to compute the numbers as appropriate. The server should be able to handle Addition, Subtraction, Multiplication, and Division. Once the calculation is complete, send back the OK. You should do a GET request after the POST to get the actual calculation.
+X Build out the server-side logic to compute the numbers as appropriate 
+  X to handle Addition, Subtraction, Multiplication, and Division. 
+  Once the calculation is complete, send back the OK. (mathObject.total)
+
+***** You should do a GET request after the POST to get the actual calculation. ****
 
 ### History
 
