@@ -3,14 +3,15 @@ console.log('js');
 $(document).ready(onReady);
 
 let operator = '';
-// let total = '';
+let total = ''; //do I need this variable anymore?
 
 function onReady(){
     console.log('jQuery');
     $('.operator').on('click', opFun); //click event to select calculation operator
     $('#submitButton').on('click', postNumbers); //click event to do the math
     $('#clearButton').on('click', clearInput); //click event to clear number inputs
-    $('#submitButton').on('click', getCalcTotal); //click event to post calculation total to DOM
+    //$('#submitButton').on('click', getCalcTotal); //click event to post calculation total to DOM
+    getCalcTotal();
 }
 
 function clearInput(){
@@ -38,35 +39,32 @@ function postNumbers(){
         }
     }).then(function(response){
         console.log('response', response)
-        // add getfunction here (); ?? from function below  
+        getCalcTotal();
     }).catch(function(error){
         alert(error);
     });
 }
 
-// get mathObject data from the server
+// get calculation total from the server and
 function getCalcTotal() {
     $.ajax({
         type: 'GET',
         url: '/submitNumbers'
     }).then(function (response) {
         console.log('response', response);
-        // append data to the DOM at #calculationTotal
-        
+        // append calculation total to DOM
+        $('#calculationTotal').empty(); 
+        $('#calculationTotal').append(response[response.length -1].total);
+         
     });
 }
 
-function appendCalcHistory(){
-    $("#calculationHistory").empty();
-        for (let i = 0; i < response.length; i++) {
-            let math = response[i]; //math or mathObject in the string interpolation?
-            $('#calculationHistory').append(`
-                <ul>
-                    <li>${math.num1}</li>
-                    <li>${math.num2}</li>
-                    <li>${math.operator}</li>
-                    <li>${math.total}</li>
-                </ul>
-            `);
-        }
-}
+// function appendCalcHistory(){
+//     $("#calculationHistory").empty();
+//         for (let i = 0; i < response.length; i++) {
+//             let math = response[i]; //math or mathObject in the string interpolation?
+//             $('#calculationHistory').append(`
+//                 <li>${math.num1}, ${math.operator}, ${math.num2}, ${math.total}</li>
+//             `);
+//         }
+// }

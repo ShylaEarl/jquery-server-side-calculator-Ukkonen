@@ -22,7 +22,7 @@ X There should also be a 'C' button that will clear the user input fields.
 
 X Build out the server-side logic to compute the numbers as appropriate 
   X to handle Addition, Subtraction, Multiplication, and Division. 
-  Once the calculation is complete, send back the OK. (mathObject.total)
+  Once the calculation is complete, send back the OK. (calculationHistory.total)
 
 ***** You should do a GET request after the POST to get the actual calculation. ****
 

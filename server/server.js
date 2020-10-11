@@ -20,10 +20,6 @@ app.post('/submitNumbers', (req, res) => {
   res.sendStatus(200);
 });
 
-//write post request call submitCal from inside POST request 
-//(POST to server or GET things from server)
-//this is how you get values and operators from client to server
-// when DOM '=' is clicked, the calculation is run
 function submitCal(mathObject){
     console.log('in submit cal');
     let num1 = mathObject.num1;
@@ -43,6 +39,10 @@ function submitCal(mathObject){
           return total;
     }
 }
+
+app.get('/submitNumbers', (req, res) => {
+  res.send(calculationHistory);
+});
 
 app.listen(PORT, () => { //tells us the port is open for business
     console.log('Up and running on port:', PORT); //keep this console.log so you know the port is working
