@@ -8,7 +8,7 @@ let total = '';
 function onReady(){
     console.log('jQuery');
     $(".operator").on("click", opFun);
-    $("#submitButton").on('click', submitCal); //click event to calculate calculation
+    $("#submitButton").on('click', postNumbers); //click event to calculate calculation
     
 }
 
