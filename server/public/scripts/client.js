@@ -3,7 +3,7 @@ console.log('js');
 $(document).ready(onReady);
 
 let operator = '';
-let total = ''; //do I need this variable anymore?
+//let total = ''; //do I need this variable anymore?
 
 function onReady(){
     console.log('jQuery');
@@ -54,17 +54,20 @@ function getCalcTotal() {
         console.log('response', response);
         // append calculation total to DOM
         $('#calculationTotal').empty(); 
-        $('#calculationTotal').append(response[response.length -1].total);
-         
+        if(response.length > 0){
+            $('#calculationTotal').append(response[response.length -1].total);
+        }    
+        appendCalcHistory(response);
     });
+    
 }
 
-// function appendCalcHistory(){
-//     $("#calculationHistory").empty();
-//         for (let i = 0; i < response.length; i++) {
-//             let math = response[i]; //math or mathObject in the string interpolation?
-//             $('#calculationHistory').append(`
-//                 <li>${math.num1}, ${math.operator}, ${math.num2}, ${math.total}</li>
-//             `);
-//         }
-// }
+function appendCalcHistory(response){
+    $("#calculationHistory").empty();
+        for (let i = 0; i < response.length; i++) {
+            let math = response[i]; //math or mathObject in the string interpolation?
+            $('#calculationHistory').append(`
+                <li>${math.num1} ${math.operator} ${math.num2} = ${math.total}</li>
+            `);
+        }
+}
